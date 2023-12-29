@@ -1,0 +1,8 @@
+.page {
+  text-align: center;
+  color: aliceblue;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  margin-left: 0.125rem;
+  margin-right: 0.125rem;
+}
