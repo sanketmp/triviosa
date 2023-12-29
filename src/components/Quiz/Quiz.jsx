@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../UI/Button";
+import Timer from "../Timer/Timer";
 import { INITIAL_RESULT } from "./questions";
 
 const Quiz = ({ questions }) => {
@@ -8,17 +9,19 @@ const Quiz = ({ questions }) => {
   const [answer, setAnswer] = useState(null);
   const [result, setresult] = useState(INITIAL_RESULT);
   const [showresult, setshowresult] = useState(false);
+  const [showAnswertimer, setshowAnswertimer] = useState(true);
   const { question, choices, correctAnswer } = questions[currentQue];
 
   const onAnswerClick = (ans, ind) => {
     setAnswerIndex(ind);
+    setshowAnswertimer(false);
     ans === correctAnswer ? setAnswer(true) : setAnswer(false);
   };
 
-  const onclicknext = () => {
+  const onclicknext = (finalAns) => {
     setAnswerIndex(null);
     setresult((prev) =>
-      answer
+      finalAns
         ? {
             ...prev,
             score: prev.score + 1,
@@ -35,6 +38,10 @@ const Quiz = ({ questions }) => {
       setCurrentQue(0);
       setshowresult(true);
     }
+
+    setTimeout(() => {
+      setshowAnswertimer(true);
+    });
   };
 
   const tryagain = () => {
@@ -42,10 +49,16 @@ const Quiz = ({ questions }) => {
     setshowresult(false);
   };
 
+  const timeUp = () => {
+    setAnswer(false);
+    onclicknext(false);
+  };
+
   return (
     <div className="quiz-c">
       {!showresult ? (
         <>
+          {showAnswertimer && <Timer duration={10} onTimeUp={timeUp} />}
           <span>{currentQue + 1}&nbsp;</span>
           <span>of {questions.length}</span>
           <h2>{question}</h2>
@@ -63,7 +76,7 @@ const Quiz = ({ questions }) => {
             })}
           </ul>
 
-          <Button onClick={onclicknext}>
+          <Button onClick={() => onclicknext(answer)}>
             {currentQue === questions.length - 1 ? "Submit Quiz" : "Next"}
           </Button>
         </>

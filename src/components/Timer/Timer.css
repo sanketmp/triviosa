@@ -1,0 +1,13 @@
+.timer {
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* border: 1px solid white; */
+}
+.progress {
+  height: 10px;
+  transition-duration: 1s;
+  width: 0%;
+  background: rgb(255, 255, 255);
+  transition-timing-function: linear;
+}
