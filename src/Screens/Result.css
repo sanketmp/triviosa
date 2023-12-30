@@ -1,7 +1,43 @@
 .result {
+  background: rgb(255, 255, 255);
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60vh;
-  text-align: center;
+  height: 45vh;
+  width: 60%;
+  margin-top: 20%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+}
+
+.report {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  width: 20%;
+  border-radius: 10px;
+  background: rgb(181, 255, 181);
+  height: 40px;
+  color: rgb(0, 108, 0);
+  margin-right: 10px;
+}
+.wrong {
+  width: 20%;
+  border-radius: 10px;
+  background: rgb(255, 181, 181);
+  height: 40px;
+  color: rgb(125, 0, 0);
+  margin-left: 10px;
+}
+
+p {
+  margin: 0px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
 }

@@ -1,9 +1,9 @@
+import { useState } from "react"
 import { Button } from "@mui/material";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Question.css";
 import ErrorMessage from "../UI/Error-message";
-import Timer from "../Timer/Timer";
+import ProgressBar from "../Timer/ProgressBar";
+import "./Question.css";
 
 const Question = ({
   currQues,
@@ -12,8 +12,7 @@ const Question = ({
   options,
   correct,
   setScore,
-  score,
-  setQuestions,
+  scoreQuestion,
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
@@ -22,13 +21,15 @@ const Question = ({
 
   const handleSelect = (i) => {
     if (selected === i && selected === correct) return "select";
-    else if (selected === i && selected !== correct) return "wrong";
+    else if (selected === i && selected !== correct) return "incorrect";
     else if (i === correct) return "select";
   };
 
   const handleCheck = (i) => {
     setSelected(i);
-    if (i === correct) setScore(score + 1);
+    if (i === correct) {
+      setScore(scoreQuestion + 1);
+    }
     setError(false);
   };
 
@@ -43,11 +44,11 @@ const Question = ({
 
   return (
     <>
-      <Timer count={currQues} />
+      <ProgressBar count={currQues} type="que" />
       <div className="question">
         <div className="singleQuestion">
           <h2>{questions[currQues].question}</h2>
-          <div className="options">
+          <div className="choices">
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {options &&
               options.map((i) => (

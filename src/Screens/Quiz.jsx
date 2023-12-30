@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Question from "../components/Quiz/Question";
 import "./Quiz.css";
 
-const Quiz = ({ questions, score, setScore, setQuestions }) => {
+const Quiz = ({ questions, scoreQuiz, setScore, setQuestions }) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
 
@@ -33,7 +33,7 @@ const Quiz = ({ questions, score, setScore, setQuestions }) => {
             questions={questions}
             options={options}
             correct={questions[currQues]?.correct_answer}
-            score={score}
+            scoreQuestion={scoreQuiz}
             setScore={setScore}
             setQuestions={setQuestions}
           />

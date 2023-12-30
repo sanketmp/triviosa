@@ -1,15 +1,14 @@
 import { useState } from "react";
-import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
 
 import Header from "./components/UI/Header";
 import Main from "./Screens/Main";
 import Quiz from "./Screens/Quiz";
 import Result from "./Screens/Result";
 
-function App() {
+const App = () => {
   const [questions, setQuestions] = useState();
-  //const [name, setName] = useState();
   const [score, setScore] = useState(0);
 
   const fetchQuestions = async () => {
@@ -31,17 +30,26 @@ function App() {
             element={
               <Quiz
                 questions={questions}
-                score={score}
+                scoreQuiz={score}
                 setScore={setScore}
                 setQuestions={setQuestions}
               />
             }
           />
-          <Route path="/result" element={<Result fetchQuestions={fetchQuestions} score={score} />} />
+          <Route
+            path="/result"
+            element={
+              <Result
+                fetchQuestions={fetchQuestions}
+                scoreResult={score}
+                setScore={setScore}
+              />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
