@@ -4,7 +4,7 @@ A Quiz app. This app will render 10 random questions on Computer Category.
 
 ## Demo
 
-[See here](https://triviosa.netlify.app/)
+[See here](https://trivio-sa.netlify.app/)
 
 ## Tech Stack
 
