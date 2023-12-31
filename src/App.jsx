@@ -21,33 +21,31 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main fetchQuestions={fetchQuestions} />} />
-          <Route
-            path="/quiz"
-            element={
-              <Quiz
-                questions={questions}
-                scoreQuiz={score}
-                setScore={setScore}
-                setQuestions={setQuestions}
-              />
-            }
-          />
-          <Route
-            path="/result"
-            element={
-              <Result
-                fetchQuestions={fetchQuestions}
-                scoreResult={score}
-                setScore={setScore}
-              />
-            }
-          />
-        </Routes>
-      </div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main fetchQuestions={fetchQuestions} />} />
+        <Route
+          path="/quiz"
+          element={
+            <Quiz
+              questions={questions}
+              scoreQuiz={score}
+              setScore={setScore}
+              setQuestions={setQuestions}
+            />
+          }
+        />
+        <Route
+          path="/result"
+          element={
+            <Result
+              fetchQuestions={fetchQuestions}
+              scoreResult={score}
+              setScore={setScore}
+            />
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };
