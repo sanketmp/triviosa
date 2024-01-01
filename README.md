@@ -43,10 +43,10 @@ Then, good to go.
 To deploy this project run
 
 ```bash
-  npm run deploy
+  npm run build
 ```
 
-And then it will create `dist` folder. You need to upload this folder to platforms like [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com), or any other platform of your choice.
+And then it will create a `dist` folder. You need to upload this folder to platforms like [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com), or any other platform of your choice.
 
 ## Reviewers
 
